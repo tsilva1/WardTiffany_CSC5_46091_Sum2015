@@ -2,7 +2,7 @@
  * File:   main.cpp 
  * Author: Tiffany Ward
  * Created on July 7, 2015, 2:10 AM
- * Purpose: Homework 2 Gaddis 1
+ * Purpose: Homework 2 Savitch 1
  */ 
 
 //System Libraries
