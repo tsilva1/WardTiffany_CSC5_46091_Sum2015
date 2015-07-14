@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
     {
        r = n / guess;
        guess = (guess + r) / 2;
+       cout << i << " = " << guess <<endl;
     }
     //Output answer (i=100)
     cout << "Estimate of square root: " << guess << endl;
