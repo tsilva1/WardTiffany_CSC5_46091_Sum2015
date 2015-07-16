@@ -22,8 +22,6 @@ int main(int argc, char** argv) {
     //Declare and initialize variables
     float cost;//wholesale cost of item
     float markup;//item's markup
-    float retail;//retail price of item after markup
-    float convPER;//convert percentage to decimal
     
     //Prompt user to enter cost and markup
     cout<<"Please enter the item's wholesale cost: $ ";
