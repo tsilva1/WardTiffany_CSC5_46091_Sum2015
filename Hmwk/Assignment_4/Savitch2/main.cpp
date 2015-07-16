@@ -1,7 +1,7 @@
 /*  
  * File:   main.cpp 
  * Author: Tiffany Ward
- * Created on July 13, 2015, 2:01 AM
+ * Created on July 13, 2015, 9:17 PM
  * Purpose:  Homework 4 Savitch 2
  */ 
 
