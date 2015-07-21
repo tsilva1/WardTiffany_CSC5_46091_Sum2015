@@ -7,11 +7,11 @@
  
 //System Libraries
 #include <iostream>//I/O Library
-#include <iomanip>
-#include <cstdlib>//Random 
-#include <ctime>//Time
-#include <string>
-using namespace std;
+#include <iomanip>//IO Manipulators
+#include <cstdlib>//C standard library 
+#include <ctime>//C Time library
+#include <string>//string library
+using namespace std;//Namespace for iostream
 
 //User Libraries
 
@@ -72,7 +72,7 @@ int main(int argc, char** argv){
             cout<<"WAR!!!\n";
             //Continue to play WAR until cards are no longer the same
             do{
-                war+=1;//Points to add to scores once WAR has ceased
+                war+=5;//Points to add to scores once WAR has ceased
                 comp=rand()%13+2;//Computer plays new card
                 plyr=rand()%13+2;//Player plays new card
                 cout<<endl;
