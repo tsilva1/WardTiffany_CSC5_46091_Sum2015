@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x_1-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x_1-Windows
-CND_ARTIFACT_NAME_Debug=war_v3_final
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x_1-Windows/war_v3_final
+CND_ARTIFACT_NAME_Debug=wardraft1
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x_1-Windows/wardraft1
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x_1-Windows/package
-CND_PACKAGE_NAME_Debug=warv3final.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x_1-Windows/package/warv3final.tar
+CND_PACKAGE_NAME_Debug=wardraft1.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x_1-Windows/package/wardraft1.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x_1-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x_1-Windows
-CND_ARTIFACT_NAME_Release=war_v3_final
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x_1-Windows/war_v3_final
+CND_ARTIFACT_NAME_Release=wardraft1
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x_1-Windows/wardraft1
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x_1-Windows/package
-CND_PACKAGE_NAME_Release=warv3final.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x_1-Windows/package/warv3final.tar
+CND_PACKAGE_NAME_Release=wardraft1.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x_1-Windows/package/wardraft1.tar
 #
 # include compiler specific variables
 #
