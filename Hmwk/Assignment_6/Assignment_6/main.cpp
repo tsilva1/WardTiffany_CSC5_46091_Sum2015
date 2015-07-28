@@ -355,19 +355,16 @@ void problem4(){
 //end of problem 4
 
 //Solution to problem 5
-using std::cout;
-using std::endl;
-
 void problem5(){
     const char filename[] = "answers.txt";
-    std::ifstream in(filename);
-    std::string question;
+    ifstream in(filename);
+    string question;
     cout<<"SAVITCH 9TH EDITION, CHPT 6\n";
     cout<<"PROGRAMMING PROJECTS #6\n";
     cout<<endl;
     while(in) {
         cout<<endl<<"Ask your question or type 'quit' to exit program:"<<endl;
-        getline(std::cin,question);
+        getline(cin,question);
         if(question == "quit") break;
         char ch;
         while((in.get(ch))&&(ch!='\n'))

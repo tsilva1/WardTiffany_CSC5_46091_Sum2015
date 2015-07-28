@@ -11,6 +11,8 @@
 #include <cstdlib>//C standard library
 #include <ctime>//C Time library
 #include <string>//string library
+#include <cctype>
+#include <fstream>
 using namespace std;//Namespace for iostream
 
 //User Libraries
@@ -20,6 +22,8 @@ using namespace std;//Namespace for iostream
 //Function Prototypes
 void header();
 void fnlSCR(int, int, string);
+int srchUSR(string, char);
+int const SIZE=20;
 
 //Execution Begins Here!
 int main(int argc, char** argv){
@@ -32,12 +36,33 @@ int main(int argc, char** argv){
     int plyrTTL=26;//player score
     int war=1;//add to scores during war
     char ans;//deal next hand?
-    string name;//Player enters name
+    char name[SIZE];//Player enters name
     
     //Prompt user to enter name in order to begin game
     header();
-    cout<<"Please enter your name: ";
-    cin>>name;
+    cout<<"Please enter your unique user name (up to 20 characters,"
+            " including spaces):\n";
+    cin.getline(name,SIZE);
+    
+    ifstream inputFile;
+    string nmsINfl;
+    inputFile.open("users.txt");
+    int a=0;
+    string line="";
+    while(a<1) // To get you all the lines.
+    {
+        getline(inputFile,nmsINfl); // Saves the line in STRING.
+        if (nmsINfl != line)
+        {
+            line=nmsINfl;
+        }
+    }
+    inputFile.close();
+    
+    ofstream outputFile;
+    outputFile.open("users.txt");
+    outputFile<<name;
+    outputFile.close();
     
     //Begin game
     do
@@ -251,7 +276,6 @@ void fnlSCR(int cTotal, int pTotal, string player)
     
     cout<<endl;
     cout<<"FINAL SCORE\n";
-    cout<<endl;
     //If player has a higher score,
     //output "You Win!!!"
     if (cTotal<pTotal)
@@ -260,7 +284,9 @@ void fnlSCR(int cTotal, int pTotal, string player)
         {
             cout<<scores[i]<<endl;
         }
+        cout<<endl;
         cout<<"YOU WIN!!!\n";
+        
     //If computer has a higher score,
     //output "You Lose :("
     }
@@ -270,6 +296,7 @@ void fnlSCR(int cTotal, int pTotal, string player)
         {
             cout<<scores[i]<<endl;
         }
+        cout<<endl;
         cout<<"YOU LOSE :(\n";
     //If scores are the same,
     //Output "TIE!"
@@ -280,6 +307,7 @@ void fnlSCR(int cTotal, int pTotal, string player)
         {
             cout<<scores[i]<<endl;
         }
+        cout<<endl;
         cout<<"TIE!\n";
     }
     delete [] scores;

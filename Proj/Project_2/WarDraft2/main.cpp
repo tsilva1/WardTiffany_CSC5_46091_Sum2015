@@ -26,13 +26,14 @@ int main(int argc, char** argv){
     srand((unsigned)time(0));
     
     //Declare Variables Here
+    const int NUM_PLYR=2;
+    int score[NUM_PLYR];
     int comp=0;//computer card
     int plyr=0;//player card
-    int compTTL=26;//computer score
-    int plyrTTL=26;//player score
     int war=1;//add to scores during war
     char ans;//deal next hand?
     string name;//Player enters name
+    int count;
     
     //Prompt user to enter name in order to begin game
     header();
@@ -42,6 +43,8 @@ int main(int argc, char** argv){
     //Begin game
     do
     {
+        score[0]=26;//computer score
+        score[1]=26;//player score
         comp=rand()%13+2;//Determines what card computer plays
         plyr=rand()%13+2;//Determines what card player plays
         
@@ -84,7 +87,7 @@ int main(int argc, char** argv){
             cout<<"WAR!!!\n";
             //Continue to play WAR until cards are no longer the same
             do{
-                war+=6;//Points to add to scores once WAR has ceased
+                war+=5;//Points to add to scores once WAR has ceased
                 comp=rand()%13+2;//Computer plays new card
                 plyr=rand()%13+2;//Player plays new card
                 cout<<endl;
@@ -123,44 +126,69 @@ int main(int argc, char** argv){
             //Increase computer score, decrease player score
             if (comp>plyr)
             {
-                compTTL+=war;
-                plyrTTL-=war;
+                score[0]+=war;
+                score[1]-=war;
                 cout<<endl;
                 cout<<"You Lose This Round\n";
-                //If computer current score>player current score,
-                //Display computers score first
-                if (compTTL>plyrTTL)
+                //If computer current score>player current score
+                if (score[0]>score[1])
                 {
-                    cout<<"Computer: "<<compTTL<<" ... "<<name<<": "<<plyrTTL<<endl;
-                    cout<<endl;
-                //If players current score>computers current score,
-                //Display players score first
+                    cout<<"I am currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
                 }
+                //If players current score>computers current score,
+                else if (score[1]>score[0])
+                {
+                    cout<<"You are currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If score is tied
                 else
                 {
-                    cout<<name<<": "<<plyrTTL<<" ... "<<"Computer: "<<compTTL<<endl;
-                    cout<<endl;
+                    cout<<"We are tied!\n";
+                    cout<<"Keep playing!\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
                 }
                 //If player card beats computer once cards are no longer the same,
                 //Increase player score, decrease player score
             }
             else
             {
-                compTTL-=war;
-                plyrTTL+=war;
+                score[0]-=war;
+                score[1]+=war;
                 cout<<endl;
                 cout<<"You Win This Round!\n";
                 //If computer current score>player current score,
                 //Display computers score first
-                if (compTTL>plyrTTL)
+                if (score[0]>score[1])
                 {
-                    cout<<"Computer: "<<compTTL<<" ... "<<name<<": "<<plyrTTL<<endl;
-                //If players current score>computers current score,
-                //Display players score first
+                    cout<<"I am currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
                 }
+                //If players current score>computers current score,
+                else if (score[1]>score[0])
+                {
+                    cout<<"You are currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If score is tied
                 else
                 {
-                    cout<<name<<": "<<plyrTTL<<" ... "<<"Computer: "<<compTTL<<endl;
+                    cout<<"We are tied!\n";
+                    cout<<"Keep playing!\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
                 }
                     cout<<endl;
             }
@@ -172,23 +200,35 @@ int main(int argc, char** argv){
         //Increase computer score by 1 and decrease player score by 1
         }else if (comp>plyr)
         {
-            compTTL+=1;
-            plyrTTL-=1;
+            score[0]+=1;
+            score[1]-=1;
             cout<<"You Lose This Round\n";
             //If computer current score>player current score,
             //Display computers score first
-            if (compTTL>plyrTTL)
-            {
-                cout<<"Computer: "<<compTTL<<" ... "<<name<<": "<<plyrTTL<<endl;
-                cout<<endl;
-            //If players current score>computers current score,
-            //Display players score first
-            }
-            else
-            {
-                cout<<name<<": "<<plyrTTL<<" ... "<<"Computer: "<<compTTL<<endl;
-                cout<<endl;
-            }
+            if (score[0]>score[1])
+                {
+                    cout<<"I am currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If players current score>computers current score,
+                else if (score[1]>score[0])
+                {
+                    cout<<"You are currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If score is tied
+                else
+                {
+                    cout<<"We are tied!\n";
+                    cout<<"Keep playing!\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
             //Ask user if they would like to go to the next round
             cout<<"Next Round (y/n)?: ";
             cin>>ans;
@@ -198,34 +238,42 @@ int main(int argc, char** argv){
         //Increase player score by 1 and decrease computer score by 1
         else
         {
-            compTTL-=1;
-            plyrTTL+=1;
+            score[0]-=1;
+            score[1]+=1;
             cout<<"You Win This Round!\n";
             //If computer current score>player current score,
             //Display computers score first
-            if (compTTL>plyrTTL)
-            {
-                cout<<"Computer: "<<compTTL<<" ... "<<name<<": "<<plyrTTL<<endl;
-                cout<<endl;
-            //If players current score>computers current score,
-            //Display players score first
-            }
-            else
-            {
-                cout<<name<<": "<<plyrTTL<<" ... "<<"Computer: "<<compTTL<<endl;
-                cout<<endl;
-            }
-            
-            //Ask user if they would like to go to the next round
-            cout<<"Next Round (y/n)?: ";
-            cin>>ans;
+            if (score[0]>score[1])
+                {
+                    cout<<"I am currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If players current score>computers current score,
+                else if (score[1]>score[0])
+                {
+                    cout<<"You are currently winning.\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
+                //If score is tied
+                else
+                {
+                    cout<<"We are tied!\n";
+                    cout<<"Keep playing!\n";
+                    cout<<"Score:\n";
+                    for (count=0;count<NUM_PLYR;count++)
+                        cout <<score[count]<<endl;
+                }
         }
     }
-    while ((ans=='Y')||(ans=='y')&&(plyrTTL>0)&&(compTTL>0));
+    while ((ans=='Y')||(ans=='y')&&(score[1]>0)&&(score[0]>0));
     
     //If user does not want to go to the next round,
     //Call score and display final score
-    fnlSCR(compTTL,plyrTTL,name);  
+    fnlSCR(score[0],score[1],name);  
     
     //END OF GAME
     return 0;
@@ -241,25 +289,16 @@ void header()
 }
 void fnlSCR(int cTotal, int pTotal, string player)
 {
-    int *scores=nullptr;
-    int players=2;
-    int i;
-    
-    scores=new int[players];
-    scores[0]=cTotal;
-    scores[1]=pTotal;
-    
     cout<<endl;
     cout<<"FINAL SCORE\n";
     cout<<endl;
     //If player has a higher score,
-    //output "You Win!!!"
+    //output player score first
+    //and output "You Win!!!"
     if (cTotal<pTotal)
     {
-        for (i=0;i<players;i++)
-        {
-            cout<<scores[i]<<endl;
-        }
+        cout<<player<<": "<<pTotal<<endl;
+        cout<<"Computer: "<<cTotal<<endl;
         cout<<"YOU WIN!!!\n";
     //If computer has a higher score,
     //output computer score first
@@ -267,23 +306,16 @@ void fnlSCR(int cTotal, int pTotal, string player)
     }
     else if (pTotal<cTotal)
     {
-        for (i=0;i<players;i++)
-        {
-            cout<<scores[i]<<endl;
-        }
+        cout<<"Computer: "<<cTotal<<endl;
+        cout<<player<<": "<<pTotal<<endl;
         cout<<"YOU LOSE :(\n";
     //If scores are the same,
     //Output "TIE!"
     }
     else
     {
-        for (i=0;i<players;i++)
-        {
-            cout<<scores[i]<<endl;
-        }
         cout<<"TIE!\n";
+        cout<<player<<": "<<pTotal<<endl;
+        cout<<"Computer: "<<cTotal<<endl;
     }
-    
-    delete [] scores;
-    scores = nullptr; // Make sales a null pointer.
 }
